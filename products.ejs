@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Page</title>
+</head>
+<body>
+    <h1>Page Products</h1>
+<a href="/products?limit=10&page=<%= page %>">Show 10 per page</a>
+<a href="/products?limit=20&page=<%= page %> ">Show 20 per page</a>
+
+<ul>
+    <% paginatedProducts.forEach(product => { %>
+        <li>
+            <h2><%= product.name %></h2>
+            <a href="/edit-product/<%= product.id %>">Edit</a>
+            <p>Price: <%= product.price %></p>
+            <p><%= product.description %></p>
+        </li>
+     <% }) %>   
+</ul>
+
+<a href="/products?limit=<%= limit %>&page=<%= page-1 %>">Previous</a>
+<a href="/products?limit=<%= limit %>&page=<%= page+1 %>">Next</a>
+
+</body>
+</html>
